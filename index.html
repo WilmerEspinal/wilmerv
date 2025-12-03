@@ -1,14 +1,50 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/41e86e3762.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./src/index.css">
-  <title>portfolio_v2</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Wilmer Espinal - Full Stack Developer especializado en desarrollo web y móvil con React, TypeScript, Laravel, Node.js, Flutter y MySQL. Portfolio de proyectos y experiencia." />
+  <meta name="keywords"
+    content="Wilmer Espinal, Full Stack Developer, React, TypeScript, Laravel, Node.js, Flutter, Desarrollo Web, Desarrollo Móvil" />
+  <meta name="author" content="Wilmer Espinal" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Wilmer Espinal - Full Stack Developer" />
+  <meta property="og:description"
+    content="Full Stack Developer especializado en desarrollo web y móvil. Creando aplicaciones modernas con React, TypeScript, Laravel y Flutter." />
+  <meta property="og:url" content="https://wilmerespinal.dev" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Wilmer Espinal - Full Stack Developer" />
+  <meta name="twitter:description" content="Full Stack Developer especializado en desarrollo web y móvil." />
+
+  <!-- DNS Prefetch para recursos externos -->
+  <link rel="dns-prefetch" href="https://api.fontshare.com" />
+  <link rel="dns-prefetch" href="https://kit.fontawesome.com" />
+  <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+
+  <!-- Preconnect para recursos críticos -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+
+  <!-- Preload de fuentes críticas -->
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" as="style" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome con defer para no bloquear renderizado -->
+  <script src="https://kit.fontawesome.com/41e86e3762.js" crossorigin="anonymous" defer></script>
+
+  <!-- Preload CSS crítico -->
+  <link rel="stylesheet" href="./src/index.css" />
+
+  <title>Wilmer Espinal - Full Stack Developer | Portfolio</title>
 </head>
 
 <body>
