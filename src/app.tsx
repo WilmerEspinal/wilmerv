@@ -23,7 +23,11 @@ export default function Home() {
         {/* Contenedor del nav centrado */}
         <div className="relative z-10 h-full flex items-center justify-center max-w-[1280px] mx-auto px-6 md:px-0">
           <nav className="w-full md:w-[1280px] flex justify-between items-center">
-            <span className="text-xl md:text-2xl font-satoshi font-bold">Wilmer</span>
+            <img
+              src="https://res.cloudinary.com/dszdc6rh8/image/upload/v1764948195/LOGO-HEADER_tvuja8.svg"
+              alt="Wilmer Logo"
+              className="h-[85px] w-[105px] "
+            />
 
             {/* Desktop Menu */}
             <ul className="hidden md:block">
@@ -176,16 +180,19 @@ export default function Home() {
                 <i className="fa-solid fa-envelope text-2xl md:text-3xl text-[#1e2022] hover:text-[#596e79] transition-colors duration-300 cursor-pointer"></i>
               </a>
             </motion.div>
-            <motion.button
+            <motion.a
+              href="https://res.cloudinary.com/dszdc6rh8/image/upload/v1764941172/CV_Espinal_Villanueva_Wilmer.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-[#596e79] text-base md:text-[18px] font-satoshi text-[#e1e4e6] w-full md:w-[190px] h-[50px] md:h-[60px] rounded cursor-pointer hover:bg-[#4a5a63] transition-colors duration-300"
+              className="bg-[#596e79] text-base md:text-[18px] font-satoshi text-[#e1e4e6] w-full md:w-[190px] h-[50px] md:h-[60px] rounded cursor-pointer hover:bg-[#4a5a63] transition-colors duration-300 flex items-center justify-center"
             >
-              Descargar CV
-            </motion.button>
+              Ver CV
+            </motion.a>
           </div>
         </section>
 
