@@ -7,20 +7,13 @@ type AboutProps = {
   description: string;
 };
 
-const experiencia: AboutProps[] = [
+const educacion: AboutProps[] = [
   {
     icon: "fa-solid fa-graduation-cap",
-    title: "Desarrollo de Sistemas de Información",
-    year: "2024 - Actualidad",
+    title: "Desarrollo de Sistemas de Información - Instituto Continental",
+    year: "2024 - Abril 2026 (Huancayo, Perú)",
     description:
-      "Actualmente estudio la carrera de Desarrollo de Sistemas de Información en el Instituto Continental, donde fortalezco mis habilidades en programación, bases de datos, análisis de sistemas y desarrollo de aplicaciones.",
-  },
-  {
-    icon: "fa-solid fa-graduation-cap",
-    title: "Formación autodidacta en Desarrollo de Software",
-    year: "2022 - Actualidad",
-    description:
-      "De manera autodidacta he aprendido tecnologías como React, TypeScript, Laravel, Node.js, Flutter y MySQL, desarrollando proyectos reales como sistemas académicos, aplicaciones móviles y herramientas con inteligencia artificial.",
+      "Formación técnica especializada en el diseño de arquitecturas de software, gestión de bases de datos relacionales y desarrollo de aplicaciones empresariales escalables.",
   },
 ];
 
@@ -30,13 +23,13 @@ export default function About() {
       {/* Título */}
       <div className="w-full md:w-[40%]">
         <h2 className="text-3xl md:text-[60px] font-bold text-[#1e2022] leading-tight">
-          Formación y experiencia
+          Formación Académica
         </h2>
       </div>
 
       {/* Timeline de Experiencia */}
       <div className="w-full md:w-[60%]">
-        {experiencia.map((p, i) => (
+        {educacion.map((p, i) => (
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -50,7 +43,7 @@ export default function About() {
               <div className="w-10 h-10 md:w-auto md:h-auto flex items-center justify-center">
                 <i className={`${p.icon} text-gray-700 text-lg md:text-xl`}></i>
               </div>
-              {i !== experiencia.length - 1 && (
+              {i !== educacion.length - 1 && (
                 <div className="w-px h-full md:h-20 bg-gray-400 mt-2"></div>
               )}
             </div>

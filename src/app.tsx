@@ -145,28 +145,26 @@ export default function Home() {
               initial={{ y: 20, opacity: 1 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-satoshi text-[clamp(80px,10vw,140px)] leading-[clamp(80px,10vw,140px)] font-bold text-[#1e2022]"
+              className="font-satoshi text-[clamp(60px,10vw,140px)] leading-[clamp(60px,10vw,140px)] font-bold text-[#1e2022]"
             >
-              Software <br /> Developer
+              Full Stack <br /> & Mobile Dev
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-full md:w-[400px] text-[clamp(20px,1.5vw,20px)] leading-6 md:leading-7 text-[#2d3748]"
+              className="w-full md:w-[600px] text-[clamp(18px,1.5vw,20px)] leading-6 md:leading-7 text-[#2d3748]"
             >
+              Especializado en el diseño y construcción de{" "}
               <span className="text-black font-bold">
-                Full Stack Developer{" "}
-              </span>
-              con enfoque en el diseño y desarrollo integral de{" "}
+                ecosistemas digitales escalables
+              </span>{" "}
+              (Web, Mobile y Base de Datos). Enfoque en{" "}
               <span className="text-black font-bold">
-                aplicaciones web y móviles
+                automatización inteligente
               </span>
-              , garantizando{" "}
-              <span className="text-black font-bold">
-                rendimiento, estabilidad y un excelente experiencia de usuario
-              </span>
-              .
+              e integración de{" "}
+              <span className="text-black font-bold">IA</span> para generar impacto real en el negocio.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -310,7 +308,7 @@ export default function Home() {
         </Suspense>
 
         {/* Projects Section */}
-        <section id="proyectos" className="bg-black/80 rounded-3xl px-6 md:px-16 py-16 md:py-24 flex flex-col gap-12 md:gap-[100px] mx-4 md:mx-0">
+        <section id="proyectos" className="bg-black/80 rounded-3xl px-6 md:px-16 py-12 md:py-20 flex flex-col gap-10 md:gap-[64px] mx-4 md:mx-0">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -328,6 +326,8 @@ export default function Home() {
                 info={p.info}
                 img={p.img}
                 hastag={p.hastag}
+                link={p.link}
+                isDeveloping={p.isDeveloping}
               />
             ))}
           </Suspense>
@@ -355,24 +355,80 @@ export default function Home() {
               className="w-full md:w-[60%] space-y-4"
             >
               <p className="text-base md:text-[18px] text-[#1e2022]">
-                ¡Hola! Soy Wilmer Espinal, Software Developer y estudiante de
-                Desarrollo de Sistemas de Información. Me apasiona crear
-                aplicaciones web y móviles que combinen diseño, funcionalidad y
-                una experiencia de usuario fluida, trabajando siempre con un
-                enfoque práctico y moderno.
+                ¡Hola! Soy Wilmer Espinal, Desarrollador Full Stack y Mobile especializado en el diseño y construcción de ecosistemas digitales escalables. Con experiencia en el ciclo de vida completo del software, me enfoco en crear soluciones que generen un impacto real en el negocio mediante la automatización inteligente e integración de IA.
               </p>
               <p className="text-[#1e2022] text-base md:text-[18px]">
-                Actualmente desarrollo sistemas reales utilizando tecnologías
-                como React, TypeScript, Laravel, Node.js, Flutter y MySQL,
-                construyendo desde plataformas académicas hasta proyectos con
-                inteligencia artificial y automatización, mientras continúo
-                creciendo hacia un perfil Full Stack.
+                Actualmente desarrollo sistemas de alta disponibilidad utilizando Node.js, Laravel, React y Flutter, integrando modelos de lenguaje avanzados (Gemini) para optimizar procesos operativos. Mi enfoque se centra en la estabilidad, el rendimiento y la excelencia en la experiencia de usuario.
               </p>
             </motion.div>
           </div>
-          <Suspense fallback={<div>Cargando...</div>}>
-            <About />
-          </Suspense>
+
+          {/* Habilidades / Soft Skills */}
+          <div className="mt-12">
+            <h3 className="text-xl md:text-2xl font-bold text-[#1e2022] mb-6">Habilidades & Enfoque</h3>
+            <div className="flex flex-wrap gap-3">
+              {[
+                "Resolución de problemas",
+                "Análisis y diseño de sistemas",
+                "Comunicación técnica",
+                "Metodologías ágiles",
+                "Aprendizaje autodidacta",
+                "Enfoque en automatización",
+                "Pensamiento lógico"
+              ].map((skill, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="px-4 py-2 bg-[#596e79]/10 text-[#596e79] rounded-full border border-[#596e79]/30 text-sm font-semibold"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-20">
+            <Suspense fallback={<div>Cargando formación...</div>}>
+              <About />
+            </Suspense>
+          </div>
+
+          {/* Certificaciones */}
+          <div className="mt-24">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#1e2022] mb-10 flex items-center gap-3">
+              Certificaciones Profesionales
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+              {[
+                "Scrum Fundamentals Certified – SCRUMstudy",
+                "Inmersión en Inteligencia Artificial (2024)",
+                "Front End Development – Alura | Oracle ONE",
+                "Lógica de Programación con JavaScript – Alura"
+              ].map((cert, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="group p-6 bg-white/40 hover:bg-[#596e79]/5 backdrop-blur-md rounded-2xl border border-[#596e79]/10 hover:border-[#596e79]/30 transition-all duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-[#596e79] rounded-xl flex items-center justify-center text-white shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                      <i className="fa-solid fa-medal text-xl"></i>
+                    </div>
+                    <div>
+                      <span className="text-[#596e79] font-bold text-xs uppercase tracking-widest mb-1 block">Credential Verified</span>
+                      <h4 className="text-[#1e2022] font-bold text-lg leading-snug">{cert}</h4>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* Footer */}
@@ -422,18 +478,27 @@ export default function Home() {
                 LINKEDIN
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#596e79] group-hover:w-full transition-all duration-300"></span>
               </a>
+              <a
+                className="text-base md:text-[18px] relative group transition-colors hover:text-[#596e79]"
+                href="https://wa.me/51914791640"
+              >
+                WHATSAPP
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#596e79] group-hover:w-full transition-all duration-300"></span>
+              </a>
             </motion.div>
           </div>
         </footer>
-        <motion.h2
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="w-full text-center text-[clamp(40px,13.5vw,180px)] leading-none font-extrabold text-[#1e2022] mt-16 md:mt-24 whitespace-nowrap"
-        >
-          Wilmer Espinal
-        </motion.h2>
+        <div className="overflow-hidden w-full">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full text-center text-[clamp(40px,13.5vw,180px)] leading-none font-extrabold text-[#1e2022] mt-16 md:mt-24 whitespace-nowrap"
+          >
+            Wilmer Espinal
+          </motion.h2>
+        </div>
       </main>
     </section>
   );
