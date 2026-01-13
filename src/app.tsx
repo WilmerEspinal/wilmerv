@@ -179,7 +179,7 @@ export default function Home() {
               </a>
             </motion.div>
             <motion.a
-              href="https://res.cloudinary.com/dszdc6rh8/image/upload/v1768340199/CV_Espinal_Villanueva_Wilmer_nbsdbj.pdf"
+              href="https://res.cloudinary.com/dszdc6rh8/image/upload/v1768342121/CV_Espinal_Villanueva_Wilmer_itkfrh.pdf.pdf"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
