@@ -1,7 +1,7 @@
 import { useState, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Tech from "./components/tecnologias";
-import { misProyectos } from "./components/proyectos";
+import { misProyectos } from "./data/proyectos";
 import icons from "./components/icons";
 
 // Lazy load components for performance
@@ -253,8 +253,8 @@ export default function Home() {
                 <Tech Icon={icons.Php} name="PHP" />
                 <Tech Icon={icons.Nodejs} name="Node.js" />
                 <Tech Icon={icons.Expressjs} name="Express.js" />
-                <Tech Icon={icons.Python} name="Python" />
                 <Tech Icon={icons.MySQL} name="MySQL" />
+                <Tech Icon={icons.N8N} name="n8n" />
               </motion.div>
 
               {/* DESARROLLO MÓVIL */}
@@ -306,30 +306,41 @@ export default function Home() {
             </div>
           </motion.section>
         </Suspense>
-
-        {/* Projects Section */}
-        <section id="proyectos" className="bg-black/80 rounded-3xl px-6 md:px-16 py-12 md:py-20 flex flex-col gap-10 md:gap-[64px] mx-4 md:mx-0">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-[#f0f5f9] text-[clamp(36px,5vw,72px)] font-satoshi font-extrabold"
-          >
-            Proyectos
-          </motion.h2>
-          <Suspense fallback={<div className="text-white">Cargando proyectos...</div>}>
-            {misProyectos.map((p, i) => (
-              <Proyectos
-                key={i}
-                title={p.title}
-                info={p.info}
-                img={p.img}
-                hastag={p.hastag}
-                link={p.link}
-                isDeveloping={p.isDeveloping}
-              />
-            ))}
+        <section
+          id="proyectos"
+          className="bg-[#596e79] rounded-[2.5rem] px-6 md:px-14 py-4 md:py-12 flex flex-col gap-0 mx-4 md:mx-0"
+        >
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 md:mb-4 pb-8 border-b border-white/6">
+            <div>
+              <motion.h2
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="text-white text-[clamp(36px,5vw,72px)] font-black tracking-tight leading-[0.95] uppercase"
+              >
+                Proyectos
+              </motion.h2>
+            </div>
+            <p className="text-white/30 text-[13px] md:text-sm leading-relaxed max-w-xs md:text-right font-light">
+              Soluciones digitales escalables con impacto medible
+            </p>
+          </div>
+          {/* Project cards */}
+          <Suspense fallback={<div className="text-white/40 py-8">Cargando proyectos...</div>}>
+            <div className="flex flex-col gap-0">
+              {misProyectos.map((p, i) => (
+                <Proyectos
+                  key={i}
+                  index={i}
+                  title={p.title}
+                  info={p.info}
+                  hastag={p.hastag}
+                  link={p.link}
+                  isDeveloping={p.isDeveloping}
+                />
+              ))}
+            </div>
           </Suspense>
         </section>
 

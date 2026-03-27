@@ -1,108 +1,79 @@
 import { motion } from "framer-motion";
-import OptimizedImage from "./OptimizedImage";
-
 
 type ProyectosProps = {
   title: string;
   info: string;
-  img: string;
   hastag: string[];
   link?: string;
   isDeveloping?: boolean;
+  index?: number;
 };
-
-export const misProyectos: ProyectosProps[] = [
-  {
-    title: "1. Sistema Web Colegio Crayons",
-    info: "Diseñé y desarrollé una solución Full Stack (Node.js, React, MySQL, Flutter, IA) para garantizar una disponibilidad del 99.8% en un entorno de alta concurrencia. Optimicé la gestión académica reduciendo en un 60% la necesidad de interacción presencial y automaticé el proceso de matrícula con IA (modelos de Gemini) y validación RENIEC, reduciendo el tiempo de ingreso de datos en un 90%.",
-    img: "https://res.cloudinary.com/dszdc6rh8/image/upload/f_auto,q_auto,w_1200,c_scale/v1742397631/crayons-home_dzxnhf.png",
-    hastag: ["#Node.js", "#React", "#MySQL", "#Flutter", "#IA"],
-    link: "https://colegiocrayons.com", // Puedes cambiar este link si es otro
-    isDeveloping: true,
-  },
-  {
-    title: "2. Preservación Lengua Asháninka",
-    info: "Plataforma educativa interactiva ganadora del Primer Lugar en innovación tecnológica. Desarrollada con React, cuenta con un sistema dinámico de reproducción para más de 70 recursos auditivos. La arquitectura modular redujo los tiempos de carga en un 40%, optimizando la enseñanza cultural mediante módulos lógicos y escalables.",
-    img: "https://res.cloudinary.com/dszdc6rh8/image/upload/f_auto,q_auto,w_1200,c_scale/v1742397628/idioma-ashaninka_hwgle5.png",
-    hastag: ["#REACT", "#REACT ROUTER", "#UX/UI"],
-    link: "https://aprende-ashaninka.pages.dev/",
-  },
-  {
-    title: "3. Sistema de Gestión Comercial (ERP/POS)",
-    info: "Plataforma integral desarrollada con Laravel 11 y React que unifica ventas, inventario y facturación. Implementé un módulo de ventas transaccional ACID, integración de API de identidad para registros rápidos y facturación automatizada en PDF (DomPDF). Optimicé el rendimiento logrando respuestas menores a 1.5s mediante Vite y paginación eficiente.",
-    img: "https://res.cloudinary.com/dszdc6rh8/image/upload/f_auto,q_auto,w_1200,c_scale/v1742397625/todo-app_vo5afx.png",
-    hastag: ["#LARAVEL 11", "#REACT", "#TYPESCRIPT", "#MYSQL"],
-    link: "https://github.com/WilmerEspinal", // Link de ejemplo/repositorio
-  }
-];
 
 export default function Proyectos({
   title,
   info,
-  img,
   hastag,
   link,
   isDeveloping,
+  index = 0,
 }: ProyectosProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
+    <motion.article
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.3 }}
-      transition={{ duration: 0.5 }}
-      whileHover={{ scale: 1.01 }}
-      className="flex flex-col md:flex-row gap-6 md:gap-12 items-center"
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.45, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      className="group flex items-start gap-6 md:gap-8 py-7 border-b border-white/10 last:border-b-0 hover:bg-white/[0.04] transition-colors duration-300 px-4 md:px-6 -mx-4 md:-mx-6 rounded-xl"
     >
-      {/* Información del Proyecto */}
-      <div className="w-full md:w-[45%] order-1 md:order-1">
-        <h2 className="text-[#f0f5f9] text-xl md:text-[32px] font-satoshi leading-tight font-extrabold mb-3 md:mb-4">
-          {title}
-        </h2>
-        <p className="text-[#f0f5f9]/80 text-sm md:text-[16px] font-satoshi mb-5 md:mb-6 leading-relaxed max-w-xl">
+      {/* Número */}
+      <span className="shrink-0 text-[11px] font-bold text-white/30 uppercase tracking-[0.2em] pt-1 w-6 text-right">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+
+      {/* Contenido */}
+      <div className="flex-1 min-w-0 space-y-3">
+        <div className="flex items-start justify-between gap-4">
+          <h2 className="text-white font-bold text-base md:text-[17px] leading-snug tracking-tight">
+            {title}
+          </h2>
+          <div className="flex items-center gap-2 shrink-0 pt-0.5">
+            {isDeveloping && (
+              <span className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.15em] text-amber-300 border border-amber-300/25 px-2.5 py-1 rounded-full bg-amber-300/10">
+                <span className="w-1 h-1 rounded-full bg-amber-300 animate-pulse" />
+                En desarrollo
+              </span>
+            )}
+            {link && !isDeveloping && (
+              <motion.a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-7 h-7 border border-white/20 rounded-lg flex items-center justify-center text-white/40 hover:text-white hover:border-white/50 transition-all duration-300"
+                aria-label={`Abrir ${title}`}
+              >
+                <i className="fa-solid fa-arrow-up-right-from-square text-[9px]" />
+              </motion.a>
+            )}
+          </div>
+        </div>
+
+        <p className="text-white/70 text-[13px] leading-relaxed max-w-2xl">
           {info}
         </p>
-        <div className="flex flex-col gap-5">
-          {link && !isDeveloping && (
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-fit flex items-center gap-2 text-[#f0f5f9] hover:text-[#596e79] transition-colors font-bold text-base group"
-            >
-              Visitar Proyecto
-              <i className="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-            </a>
-          )}
-          <div className="flex gap-2 flex-wrap">
-            {hastag.map((tag: string, index: number) => (
-              <span
-                className="px-2.5 py-1 bg-white/10 backdrop-blur-sm rounded text-[11px] md:text-[12px] text-[#f0f5f9] font-medium border border-white/5"
-                key={index}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      {/* Imagen del Proyecto */}
-      <div className="w-full md:w-[55%] h-[200px] md:h-[300px] bg-white/5 backdrop-blur-sm p-2 md:p-3 flex justify-center items-center rounded-2xl md:rounded-2xl order-2 md:order-2 relative overflow-hidden border border-white/10 group">
-        {isDeveloping && (
-          <div className="absolute top-3 right-3 z-10 bg-black/80 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold border border-white/10 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse"></span>
-            EN DESARROLLO
-          </div>
-        )}
-        <div className="w-full h-full overflow-hidden rounded-xl md:rounded-xl">
-          <OptimizedImage
-            src={img}
-            alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            sizes="(max-width: 768px) 100vw, 55vw"
-          />
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {hastag.map((tag, i) => (
+            <span
+              key={i}
+              className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/60 bg-white/10 border border-white/10 rounded-md"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }
